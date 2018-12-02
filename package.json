@@ -3,6 +3,12 @@
   "workspaces": {
     "packages": [
       "nasa/*"
+    ],
+    "nohoist": [
+      "**/apollo-boost",
+      "**/apollo-boost/**",
+      "**/apollo-client",
+      "**/apollo-client/**"
     ]
   },
   "devDependencies": {

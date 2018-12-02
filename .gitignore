@@ -1,7 +1,8 @@
 .idea/
 .vscode/
 .expo/
-
+.next/*
+nasa/nasa-client/.next/*
 node_modules/
 build/
 temp/

@@ -1,3 +1,17 @@
 {
-    "extends": "airbnb"
+    "extends": "airbnb",
+    "rules": {
+        "no-console": "off",
+        "linebreak-style": "off",
+        "arrow-body-style": "off",
+        "no-unused-vars": "off",
+        "class-methods-use-this": "off",
+        "react/jsx-filename-extension": "off",
+        "react/jsx-one-expression-per-line": "off",
+        "react/react-in-jsx-scope": "off",
+        "react/prefer-stateless-function": "off",
+        "object-curly-newline": "off",
+        "jsx-a11y/html-has-lang": "off",
+        "react/prop-types": "off"
+    }
 }
