@@ -2,7 +2,7 @@ import { gql } from 'apollo-server';
 
 export default gql`
   type Query {
-    getNeoWsAsteroid(START_DATE: String!, END_DATE: String!): NeoWsAsteroid!
+    getNeoWsAsteroidsFeed(START_DATE: String!, END_DATE: String!): NeoWsAsteroid!
   }
   
   type NeoWsAsteroid {
@@ -13,6 +13,19 @@ export default gql`
     start_date: String!
     end_date: String!
     start_date_near_earth: [StartDateNearEarth!]!
+    end_date_near_earth: [EndDateNearEarth!]!
+  }
+
+  type EndDateNearEarth {
+    id: String!
+    neo_reference_id: String!
+    name: String!
+    nasa_jpl_url: String!
+    absolute_magnitude_h: Float!
+    estimated_diameter: EstimatedDiameters!
+    is_potentially_hazardous_asteroid: Boolean!
+    close_approach_data: [CloseApproachData!]!
+    is_sentry_object: Boolean!
   }
 
   type StartDateNearEarth {

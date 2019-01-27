@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
+import Header from './Header';
 
 const theme = {
-  red: '#FF0000',
+  middleRedPurple: '#20063B',
   black: '#393939',
   grey: '#3A3A3A',
   lightgrey: '#E1E1E1',
@@ -12,20 +13,26 @@ const theme = {
 };
 
 const StyledPage = styled.div`
-  background: white;
-  color: ${props => props.theme.black};
+  background: ${props => props.theme.white};
+  color: ${props => props.theme.middleRedPurple};
+`;
+
+const Inner = styled.div`
+  max-width: ${props => props.theme.maxWidth};
+  margin: 0 auto;
+  padding: 2rem;
 `;
 
 const GlobalStyle = createGlobalStyle`
-  /* @font-face {
+  @font-face {
     font-family: 'radnika_next';
     src: url('/static/radnikanext-medium-webfont.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
-  } */
+  }
   html {
     box-sizing: border-box;
-    font-size: 10px;
+    font-size: 14px;
   }
   *, *:before, *:after {
     box-sizing: inherit;
@@ -35,13 +42,13 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     font-size: 1.5rem;
     line-height: 2;
-    /* font-family: 'radnika_next'; */
+    font-family: 'radnika_next';
   }
   a {
     text-decoration: none;
     color: ${theme.black};
   }
-  /* button {  font-family: 'radnika_next'; } */
+  button {  font-family: 'radnika_next'; }
 `;
 
 class Page extends Component {
@@ -50,9 +57,11 @@ class Page extends Component {
     return (
       <ThemeProvider theme={theme}>
         <StyledPage>
-          { children }
+          <Header />
+          <Inner>
+            { children }
+          </Inner>
           <GlobalStyle />
-          {/* </GlobalStyle> */}
         </StyledPage>
       </ThemeProvider>
     );

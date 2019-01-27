@@ -8,7 +8,7 @@ export default gql`
   type APOD {
     date: String!
     explanation: String!
-    hdurl: String!
+    hdurl: String
     media_type: String!
     service_version: String!
     title: String!

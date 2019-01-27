@@ -5,8 +5,19 @@ import styled from 'styled-components';
 
 const StyledImage = styled.img`
   object-fit: cover;
-  width: 300px;
-  height: 300px;
+  max-width: ${props => props.theme.maxWidth};
+
+  @media only screen and (min-width: 768px) {
+    max-width: 940px;
+  }
+`;
+
+const StyledText = styled.p` 
+  margin: 0;
+  padding: 0;
+  /* @media only screen and (min-width: 768px) {
+    font-size: 10px;
+  } */
 `;
 
 const RETRIEVE_APOD = gql`
@@ -27,16 +38,18 @@ class APOD extends React.Component {
         {({ loading, data }) => {
           if (loading) return null;
 
-          console.log(data);
-
           const { date, explanation, title, hdurl } = data.getApod;
 
           return (
             <div>
-              <p> {date} </p>
-              <p> {explanation} </p>
-              <p> {title} </p>
-              <StyledImage alt={title} src={hdurl} />
+              <div className="text">
+                <StyledText>  {title} </StyledText>
+                <StyledText> {date} </StyledText>
+              </div>
+              <div className="image">
+                <StyledImage alt={title} src={hdurl} />
+                <StyledText> {explanation} </StyledText>
+              </div>
             </div>
           );
         }}

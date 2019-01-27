@@ -2,8 +2,8 @@ import { mergeTypes, mergeResolvers } from 'merge-graphql-schemas';
 import { makeExecutableSchema } from 'graphql-tools';
 import apodSchema from './apod/schema';
 import apodResolvers from './apod/resolvers';
-import neowsAsteroidSchema from './neowsAsteroid/schema';
-import neowsAsteroidResolvers from './neowsAsteroid/resolvers';
+import neowsAsteroidSchema from './neowsAsteroids/schema';
+import neowsAsteroidResolvers from './neowsAsteroids/resolvers';
 
 const types = [
   apodSchema,
